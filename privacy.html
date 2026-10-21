@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — The Story of Everything</title>
+  <meta name="description" content="How The Story of Everything's private publishing tool uses Google OAuth, the YouTube Data API and the Instagram API.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="./">The Story of Everything</a>
+      <nav>
+        <a href="./">Home</a>
+        <a href="privacy.html" aria-current="page">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective date: October 21, 2026 · Last updated: October 21, 2026</p>
+
+    <p>This policy explains what data the publishing tool of <strong>The Story of Everything</strong> (the "App") accesses,
+      why, where it is kept and how access can be removed. It also covers this website.</p>
+
+    <h2>1. Who operates the App</h2>
+    <p>The App and this website are operated by The Story of Everything (the "Operator"), the team behind the channel of the same name.
+      Contact: <a href="mailto:hikayesidunyanin@gmail.com">hikayesidunyanin@gmail.com</a>.</p>
+
+    <h2>2. What the App is — and is not</h2>
+    <p>The App is a private, single-operator tool that runs on the Operator's own Windows computer. It uploads videos made
+      for The Story of Everything to the channel's own YouTube channel and Instagram account.</p>
+    <ul>
+      <li>It is <strong>not</strong> a public service. There is no sign-up, and no one other than the Operator can sign in.</li>
+      <li>The only Google account that authorizes the App is the Operator's own account that owns the YouTube channel.</li>
+      <li>It does <strong>not</strong> collect data about viewers, subscribers or commenters of the channel.</li>
+      <li>It has no servers of its own: everything runs on the Operator's computer and talks directly to Google and Meta.</li>
+    </ul>
+
+    <h2>3. Google user data the App accesses</h2>
+    <p>The Operator authorizes the App once through Google OAuth 2.0. The App requests these scopes:</p>
+    <div class="table-scroll">
+      <table>
+        <tr><th>Scope</th><th>What the App does with it</th></tr>
+        <tr><td><code>youtube.upload</code></td><td>Uploads the channel's videos and sets their title, description, tags,
+          privacy status and scheduled publish time.</td></tr>
+        <tr><td><code>youtube.force-ssl</code></td><td>Uploads the English caption (subtitle) file of each uploaded video.</td></tr>
+        <tr><td><code>youtube.readonly</code></td><td>Reads the channel's ID and title (to confirm it is connected to the
+          right channel) and the titles of the channel's most recent uploads (to avoid uploading the same video twice
+          after an interrupted upload).</td></tr>
+      </table>
+    </div>
+    <p>The App does not read or change playlists, comments, subscriptions, analytics, other channels or any non-YouTube
+      Google data.</p>
+
+    <h2>4. How Google user data is used and shared</h2>
+    <ul>
+      <li>Data received from Google APIs is used only to publish and manage the channel's own videos as described above.</li>
+      <li>It is not sold, not used for advertising, and not transferred to anyone else.</li>
+      <li>It is not used to develop, improve or train AI or machine-learning models.</li>
+      <li>It is not read by people, except by the Operator when looking at the App's own logs for their own channel.</li>
+    </ul>
+    <p>The App's use and transfer of information received from Google APIs will adhere to the
+      <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>,
+      including the Limited Use requirements.</p>
+
+    <h2>5. What is stored, and where</h2>
+    <div class="table-scroll">
+      <table>
+        <tr><th>Item</th><th>Where / how</th></tr>
+        <tr><td>Google OAuth access and refresh token</td><td>A file on the Operator's computer, encrypted with Windows Data
+          Protection (DPAPI) so that only the Operator's Windows user account on that computer can decrypt it.</td></tr>
+        <tr><td>Google OAuth client configuration (client ID and client secret of the App)</td><td>A file on the Operator's
+          computer. This file is <strong>not</strong> encrypted.</td></tr>
+        <tr><td>Instagram access token</td><td>A file on the Operator's computer, encrypted with Windows DPAPI.</td></tr>
+        <tr><td>Publishing log</td><td>Plain-text files on the Operator's computer that record each upload attempt:
+          time, which account, the video file's checksum, the resulting YouTube video ID / Instagram media ID and link,
+          the scheduled publish time, and error messages.</td></tr>
+      </table>
+    </div>
+    <p>Nothing is sent to any server operated by the Operator, because there is none. Tokens are sent only to Google
+      (for YouTube) and Meta (for Instagram), over HTTPS, as part of the API calls themselves.</p>
+
+    <h2>6. Retention and deletion</h2>
+    <div class="note">
+      <p><strong>Current status (stated plainly):</strong> the App has <strong>no automatic deletion</strong> and
+        <strong>no fixed retention period</strong>. Tokens stay stored until access is revoked or the Operator deletes
+        the files; the publishing log is kept until the Operator deletes it.</p>
+    </div>
+    <ul>
+      <li>Google access can be removed at any time at
+        <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>.
+        After that, the stored Google token no longer works.</li>
+      <li>The Operator can delete the stored token and log files manually. Requests can be sent to
+        <a href="mailto:hikayesidunyanin@gmail.com">hikayesidunyanin@gmail.com</a> and are handled by hand.</li>
+      <li>Videos published to YouTube or Instagram are kept by those platforms under their own policies and can be deleted
+        in YouTube Studio or the Instagram app.</li>
+    </ul>
+
+    <h2>7. Security</h2>
+    <p>Tokens are encrypted at rest with Windows DPAPI and are never written to logs or shown on screen.
+      Security therefore also depends on the Operator's Windows account and computer. The App has not been independently
+      audited, and it makes no backups of tokens.</p>
+
+    <h2>8. Instagram (Meta) and video delivery</h2>
+    <p>For Instagram, the App uses the official Instagram API with Instagram Login for the Operator's own Instagram
+      account. To give Instagram a video, the App makes that single video file reachable for a few minutes through a
+      temporary Cloudflare tunnel at a random, unguessable web address, and closes it once Instagram has fetched the file.
+      During that time the video file passes through Cloudflare's network
+      (<a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare Privacy Policy</a>).
+      The video is the channel's own content and contains no personal data. Meta's handling of the account is covered by the
+      <a href="https://privacycenter.instagram.com/policy" rel="noopener">Instagram Privacy Policy</a>.</p>
+
+    <h2>9. YouTube API Services</h2>
+    <p>The App uses YouTube API Services. By using the App, the account owner agrees to be bound by the
+      <a href="https://www.youtube.com/t/terms" rel="noopener">YouTube Terms of Service</a>. Google's handling of data is described in the
+      <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>. Access granted to the App can be revoked through
+      <a href="https://myaccount.google.com/permissions" rel="noopener">Google's security settings page</a>.</p>
+
+    <h2>10. This website</h2>
+    <p>This website is a static site hosted on GitHub Pages. It uses no cookies, no analytics, no tracking and no
+      third-party scripts or fonts. GitHub, as the host, may log technical data such as visitors' IP addresses for
+      security purposes; see the
+      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub General Privacy Statement</a>.</p>
+
+    <h2>11. Your rights (GDPR)</h2>
+    <p>The Operator is based in Germany, so the EU General Data Protection Regulation (GDPR) applies. The controller is
+      the Operator named in section 1 (contact: <a href="mailto:hikayesidunyanin@gmail.com">hikayesidunyanin@gmail.com</a>).</p>
+    <ul>
+      <li>The App processes the Operator's own account data to run the Operator's own channel. Website hosting logs kept by
+        GitHub are processed on the basis of a legitimate interest in operating a secure website (Art. 6(1)(f) GDPR).</li>
+      <li>You have the right to access, rectification, erasure, restriction of processing, data portability and to object
+        (Art. 15–21 GDPR). Requests are handled by hand via the e-mail address above; there is no automated tool for this.</li>
+      <li>You also have the right to lodge a complaint with a data protection supervisory authority, in particular in the
+        EU member state where you live or work.</li>
+    </ul>
+
+    <h2>12. Children</h2>
+    <p>The App is used only by the Operator and is not directed at children. It does not knowingly collect personal data
+      from anyone, including children.</p>
+
+    <h2>13. Changes</h2>
+    <p>If the App starts accessing different data or changes how data is stored, this page will be updated and the
+      "Last updated" date changed.</p>
+
+    <h2>14. Contact</h2>
+    <p><a href="mailto:hikayesidunyanin@gmail.com">hikayesidunyanin@gmail.com</a></p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a href="./">Home</a><a href="terms.html">Terms of Service</a>
+      <span>© 2026 The Story of Everything</span>
+    </div>
+  </footer>
+</body>
+</html>
